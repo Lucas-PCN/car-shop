@@ -22,11 +22,13 @@ class CarService implements IService<ICar> {
     const cars = await this._icar.readOne(_id);
 
     if (!cars) throw new Error(ErrorTypes.EntityNotFound);
+
     return cars;
   }
 
   public async read(): Promise<ICar[]> {
     const responseCars = await this._icar.read();
+
     return responseCars;
   }
 
@@ -43,6 +45,7 @@ class CarService implements IService<ICar> {
 
   public async delete(_id: string): Promise<ICar | null> {
     const response = await this._icar.delete(_id);
+
     return response;
   }
 }
